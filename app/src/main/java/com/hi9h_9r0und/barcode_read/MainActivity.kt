@@ -10,12 +10,19 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
+
         button_scan.setOnClickListener{
-            object :IntentIntegrator(this){}.initiateScan()
+            var intent =IntentIntegrator(this)
+
+            intent.setOrientationLocked(false)
+            intent.initiateScan()
         }
 
     }
@@ -43,3 +50,4 @@ class MainActivity : AppCompatActivity() {
         }
     }
 }
+
